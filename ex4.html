@@ -1,0 +1,11 @@
+<script>
+    let vetor = [];
+for (let i = 0; i < 10; i++) {
+    vetor.push(parseInt(prompt(`Digite o valor para a posição ${i+1}:`)));
+}
+
+
+vetor.sort((a, b) => a - b);
+
+console.log("Vetor ordenado:", vetor);
+</script>
