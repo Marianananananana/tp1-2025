@@ -1,0 +1,16 @@
+<h1>Calculadora regra de 3</h1> 
+<title>Calculadora regra de 3</title>
+<input type="number" id="a"> ----
+<input type="number" id="b"> <br>
+<input type="number" id="c"> ----x 
+<input type = "button" value="Calcular x (DOM)" onclick="multiplicapor2(b.value)" >
+<h1 id="num"></h1>
+<script>
+function x2(x){
+    return 2*x
+}
+function multiplicapor2(){
+let x = a.value*b.value/c.value
+num.innerHTML= `x=${x}`
+}
+</script>
