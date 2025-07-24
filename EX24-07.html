@@ -1,0 +1,35 @@
+<h1>Calculadora</h1> 
+<title>Calculadora <input type="number" id="a"></title>
+<input type="number" id="a">
+<input type="number" id="b"> <br>
+<input type = "button" value="*" onclick="multiplicar(b.value)" >
+<input type = "button" value="/" onclick="dividir(b.value)" >
+<input type = "button" value="+" onclick="somar(b.value)"> 
+<input type = "button" value="-" onclick="subtrair(b.value)" > <br>
+<input type = "button" value="Limpar" onclick="limpar(b.value)" >
+
+
+<h1 id="num"></h1>
+<script>
+function multiplicar(){
+let x = a.value*b.value
+num.innerHTML= x
+}
+function dividir(){
+    let x = a.value/b.value
+    num.innerHTML= x
+}
+function somar(){
+    let x = a.value*1 + b.value*1
+    num.innerHTML= x
+}
+function subtrair(){
+    let x = a.value-b.value
+    num.innerHTML= x
+}
+function limpar() {
+    let x = ""
+    num.innerHTML= x
+}
+
+</script>
