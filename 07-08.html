@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora com Histórico</title>
+    <script>
+       
+        var historico = [];
+
+        
+        function somar() {
+            var x = document.getElementById('n1').value;
+            var y = document.getElementById('n2').value;
+            var resultado = parseFloat(x) + parseFloat(y);
+            document.getElementById('res').innerHTML = resultado;
+            adicionarHistorico(x, y, '+', resultado);
+        }
+
+        
+        function subtrair() {
+            var x = document.getElementById('n1').value;
+            var y = document.getElementById('n2').value;
+            var resultado = parseFloat(x) - parseFloat(y);
+            document.getElementById('res').innerHTML = resultado;
+            adicionarHistorico(x, y, '-', resultado);
+        }
+
+        
+        function multiplicar() {
+            var x = document.getElementById('n1').value;
+            var y = document.getElementById('n2').value;
+            var resultado = parseFloat(x) * parseFloat(y);
+            document.getElementById('res').innerHTML = resultado;
+            adicionarHistorico(x, y, '*', resultado);
+        }
+
+        
+        function dividir() {
+            var x = document.getElementById('n1').value;
+            var y = document.getElementById('n2').value;
+            var resultado = parseFloat(x) / parseFloat(y);
+            document.getElementById('res').innerHTML = resultado;
+            adicionarHistorico(x, y, '/', resultado);
+        }
+
+        
+        function limpar() {
+            document.getElementById('n1').value = "";
+            document.getElementById('n2').value = "";
+            document.getElementById('res').innerHTML = "Aguardando valores...";
+        }
+
+        
+        function adicionarHistorico(a, b, operacao, resultado) {
+            var operacaoRealizada = {
+                numero1: a,
+                numero2: b,
+                operacao: operacao,
+                resultado: resultado
+            };
+            historico.push(operacaoRealizada);
+            exibirHistorico();
+        }
+
+        
+        function exibirHistorico() {
+            var listaHistorico = document.getElementById('historico');
+            listaHistorico.innerHTML = '';  // Limpa a lista antes de exibir
+
+            for (var i = 0; i < historico.length; i++) {
+                var item = historico[i];
+                var listItem = document.createElement("li");
+                listItem.innerHTML = `${item.numero1} ${item.operacao} ${item.numero2} = ${item.resultado}`;
+                listaHistorico.appendChild(listItem);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <input type="text" id="n1"><br>
+    <input type="text" id="n2"><br><br>
+    <input type="button" value="+" onclick="somar()">
+    <input type="button" value="-" onclick="subtrair()">
+    <input type="button" value="*" onclick="multiplicar()">
+    <input type="button" value="/" onclick="dividir()"><br><br>
+    <input type="button" value="Limpar" onclick="limpar()">
+    <p id="res">Aguardando valores...</p>
+
+    <h2>Histórico de Operações</h2>
+    <ol id="historico">
+       
+    </ol>
+</body>
+</html>
